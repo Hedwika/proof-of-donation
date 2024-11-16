@@ -10,8 +10,13 @@ const Web3AuthComponent = () => {
   const [user, setUser] = useState(null);
   const [provider, setProvider] = useState(null);
   const [web3auth, setWeb3Auth] = useState(null);
-  const [eligible, setEligible] = useState(null); // Track eligibility status
-  const [loading, setLoading] = useState(false); // Track loading state
+  const [eligible, setEligible] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const contractAddress = "0xa8c6076a869EFcCABd2145bB28AEA05BbBD48A0d"; // Replace with your deployed contract address
+  const contractABI = [
+    "function mintNFT(address recipient, string memory tokenURI) public",
+  ];
 
   useEffect(() => {
     const initWeb3Auth = async () => {
@@ -77,14 +82,8 @@ const Web3AuthComponent = () => {
       setUser({ ...userInfo, walletAddress: address });
       setProvider(ethersProvider);
 
-      // Check eligibility
-      const response = await fetch("/api/eligibility", {
-        method: "GET",
-      });
-      const data = await response.json();
-      const isEligible = data.find((entry) => entry.address.toLowerCase() === address.toLowerCase());
-
-      setEligible(isEligible ? isEligible.eligible : false);
+      // Simulate eligibility check
+      setEligible(true); // Replace with actual backend eligibility check
       setLoading(false);
     } catch (error) {
       console.error("Login error:", error);
@@ -109,9 +108,32 @@ const Web3AuthComponent = () => {
     }
   };
 
-  const mintNFT = () => {
-    console.log("Minting NFT...");
-    // Add your minting logic here
+  const mintNFT = async () => {
+    if (!provider || !user) {
+      console.error("No provider or user logged in");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      console.log("Minting NFT...");
+
+      const signer = await provider.getSigner();
+      const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+      const metadataURL = "ipfs://QmU19jnynsN9s2VrzXSgzJSCYWt14vtcZkUKkHeKvfwLEk/metadata.json";
+      const transaction = await contract.mintNFT(user.walletAddress, metadataURL);
+
+      console.log("Transaction sent. Waiting for confirmation...");
+      await transaction.wait();
+
+      console.log("NFT minted successfully!");
+      setEligible(false);
+    } catch (error) {
+      console.error("Error minting NFT:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -132,9 +154,9 @@ const Web3AuthComponent = () => {
               eligible ? "bg-green-500" : "bg-gray-400 cursor-not-allowed"
             }`}
             onClick={mintNFT}
-            disabled={!eligible}
+            disabled={!eligible || loading}
           >
-            Mint!
+            {loading ? "Minting..." : "Mint!"}
           </button>
           <button className="mt-4 px-4 py-2 bg-red-500 text-white rounded" onClick={logout}>
             Logout
