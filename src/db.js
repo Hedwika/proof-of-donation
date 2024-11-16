@@ -1,6 +1,7 @@
 require("dotenv").config({ path: ".env" });
 const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri = process.env.MONGODB_URI;
+const uri = "mongodb+srv://pajerovahedvika:qbIV8mU5I63qDCJY@ethglobaltest.v9bk8.mongodb.net/proof_of_donation?authSource=admin&compressors=zlib&retryWrites=true&w=majority&ssl=true";
+
 process.env.DEBUG = "mongodb:*";
 
 const connectDB = async () => {

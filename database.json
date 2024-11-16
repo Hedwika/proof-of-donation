@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "address": "0x1e240B45eEb3FAc59F1F12b77319261089996020",
+            "supported_project": "eff",
+            "eligible": true,
+            "claimed": false
+        },
+        {
+            "address": "0x81d9EC6948aa76e38ADfAd9AD92676E64f278085",
+            "supported_project": "tor",
+            "eligible": true,
+            "claimed": false
+        }
+    ]
+}

@@ -5,7 +5,7 @@ const fs = require('fs');
 const pinata = new PinataSDK('b3fd2f10507f52baf4ae', '36634f8d5532d523bcc6f4c9d27490fe4ef7c84ea4bb7a7cbb86377446ac2ec2');
 
 const uploadFileToIPFS = async () => {
-    const fileStream = fs.createReadStream('./metadata.json');
+    const fileStream = fs.createReadStream('./metadataTor.json');
     const options = {
         pinataMetadata: {
             name: 'Proof of Donation Metadata',
