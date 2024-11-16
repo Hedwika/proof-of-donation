@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@openzeppelin/contracts": "^5.1.0",
+    "@pinata/sdk": "^2.1.0",
+    "@web3-storage/w3up-client": "^16.4.1",
     "@web3auth/ethereum-provider": "^9.4.0",
     "@web3auth/modal": "^9.4.0",
     "autoprefixer": "^10.4.20",
@@ -19,11 +23,14 @@
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "web3": "^4.15.0"
+    "solc": "^0.8.28",
+    "web3": "^4.15.0",
+    "web3.storage": "^4.5.5"
   },
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
+    "hardhat": "^2.22.15",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15"
   }
