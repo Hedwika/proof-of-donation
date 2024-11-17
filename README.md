@@ -61,13 +61,6 @@ The art serves as a branding element, increasing user engagement and creating a 
 ## 🔧 Local Development
 
 ### Prerequisites
-- Node.js >= 16
-- npm or yarn
-- Ethereum-compatible wallet (e.g., MetaMask)
-
-## 🔧 Local Development
-
-### Prerequisites
 - **Node.js** >= 16
 - **npm** or **yarn**
 - **Ethereum-compatible wallet** (e.g., MetaMask)
