@@ -23,7 +23,7 @@ The art serves as a branding element, increasing user engagement and creating a 
 
 ---
 
-## 🤝 Partners and Focus Areas
+## 🎯 Focus Areas
 
 1. **Social Focus**:  
    Proof of Donation targets transparency in philanthropy, encouraging individuals to contribute towards causes like online privacy and internet freedom. It helps companies to strengthen their branding and fill the cultural gap between their current supporters and web3 generation.
@@ -84,7 +84,7 @@ The art serves as a branding element, increasing user engagement and creating a 
 5. Access the application at http://localhost:3000.
 
 ## 👥 Contributors
-    [@hedwika]: Developer and Designer
+    **@hedwika**: Developer and Designer
 
 ## 📝 License
-    This project is licensed under the MIT License.
+    This project is licensed under the** MIT License**.
