@@ -1,6 +1,19 @@
-type ExampleEntity @entity {
-  id: Bytes!
-  count: BigInt!
-  owner: Bytes! # address
-  approved: Bytes! # address
+type Collection @entity {
+  id: ID!
+  name: String!
+  tokenIds: [String!]!
+  totalSupporters: Int!
+}
+
+type Token @entity {
+  id: ID!
+  collection: Collection!
+  owner: String!
+}
+
+type Badge @entity {
+  id: ID!
+  owner: Bytes!
+  project: String!
+  timestamp: BigInt!
 }
